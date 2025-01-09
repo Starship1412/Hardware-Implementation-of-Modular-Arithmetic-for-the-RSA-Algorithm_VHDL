@@ -9,11 +9,11 @@ use ieee.numeric_std.all;
 
 entity modm_adder is
   generic (
-    k : integer
+	k : integer
   );
   port (
-    x, y, m: in std_logic_vector(k-1 downto 0);
-    z: out std_logic_vector(k-1 downto 0)
+	x, y, m: in std_logic_vector(k-1 downto 0);
+	z: out std_logic_vector(k-1 downto 0)
   );
 end modm_adder;
 
