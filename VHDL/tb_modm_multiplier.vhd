@@ -60,7 +60,7 @@ begin
 		wait;
 	end process;
 	
--- x should be less than m, y should be less than m.
+-- y should be less than m.
 	stim_proc: process
 	begin
 		reset_tb <= '1';

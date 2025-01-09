@@ -41,7 +41,7 @@ begin
 
 	clk_process : process
 	begin
-		while now < 2020000 ns loop
+		while now < 8000000 ns loop
 			clk_tb <= '0';
 			wait for clk_period/2;
 			clk_tb <= '1';
@@ -53,13 +53,13 @@ begin
 	rst_process : process
 	begin
 		rst_tb <= '1'; -- If at first rst_tb is '1', the HEX should be 0001, in LED it is 40 40 40 79.
-		wait for 10000 ns;
+		wait for 2000000 ns;
+		rst_tb <= '0'; -- F20F in HEX is 0E 24 40 0E in LED
+		wait for 2000000 ns;
+		rst_tb <= '1'; -- 0001 in HEX is 40 40 40 79 in LED
+		wait for 2000000 ns;
 		rst_tb <= '0'; -- 8000 in HEX is 00 40 40 40 in LED
-		wait for 1000000 ns;
-		rst_tb <= '1'; -- The previous v
-		wait for 10000 ns;
-		rst_tb <= '0';
-		wait for 1000000 ns;
+		wait for 2000000 ns;
 		wait;
 	end process;
 
@@ -67,11 +67,11 @@ begin
 	begin
 		sw1_tb <= '0';
 		sw2_tb <= '0';
-		wait for 990000 ns;
+		wait for 3000000 ns;
 
 		sw1_tb <= '1';
 		sw2_tb <= '1';
-		wait for 1000000 ns;
+		wait for 5000000 ns;
 		wait;
 	end process;
 end architecture testbench;
